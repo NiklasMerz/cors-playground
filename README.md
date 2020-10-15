@@ -1,4 +1,6 @@
-iOS Cordova CORS testing
+# iOS Cordova CORS testing
+
+With this app you can try out CORS and the built in Cordova proxy: https://github.com/apache/cordova-ios/pull/1004
 
 Some scenarios I tried
 
