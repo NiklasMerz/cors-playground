@@ -59,7 +59,11 @@ async function testRequest(url) {
         url += "&random=" + Date.now();
     }
 
-    const res = await fetch(url, { credentials: 'include' });
-    console.log(res);
-    alert(res.status + "-" + (await res.text()));
+    try {
+        const res = await fetch(url, { credentials: 'include' });
+        console.log(res);
+        alert(res.status + "-" + (await res.text()));
+    } catch (e) {
+        alert(e);
+    }
 }
