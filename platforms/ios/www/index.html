@@ -39,10 +39,12 @@
     <body>
         <div class="app">
             <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+            <button onclick="testCookie()">Test cookie</button>
+            <button onclick="testCookieProxy()">Test cookie proxy</button>
+            <button onclick="getCookie()">Get cookie</button>
+            <button onclick="getCookieProxy()">Get cookie with proxy</button>
+            <button onclick="testCookieCORS()">Test cookie CORS</button>
+            <button onclick="getCookieCORS()">Get cookie CORS</button>
         </div>
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>

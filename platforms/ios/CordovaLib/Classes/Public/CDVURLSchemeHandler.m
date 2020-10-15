@@ -88,6 +88,7 @@
                         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
                             //running in background thread is necessary because setCookie otherwise fails
                             dispatch_async(dispatch_get_main_queue(), ^(void){
+                                NSLog(@"Cookie: %@", c.name);
                                 [cookieStore setCookie:c completionHandler:nil];
                             });
                         });

@@ -25,5 +25,41 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+}
+
+function getCookie() {
+    testRequest("https://niklas.merz.dev/corstest/api");
+}
+
+function getCookieProxy() {
+    testRequest(window.WkWebView.convertProxyUrl("https://niklas.merz.dev/corstest/api"));
+}
+
+function getCookieCORS() {
+    testRequest("https://niklas.merz.dev/corstest/api-app");
+}
+
+function testCookie() {
+    testRequest("https://niklas.merz.dev/corstest/test");
+}
+
+function testCookieProxy() {
+    testRequest(window.WkWebView.convertProxyUrl("https://niklas.merz.dev/corstest/test"));
+
+}
+function testCookieCORS() {
+    testRequest("https://niklas.merz.dev/corstest/test-app");
+}
+
+async function testRequest(url) {
+    //cache
+    if (url.indexOf("?") === -1) {
+        url += "?random=" + Date.now();
+    } else {
+        url += "&random=" + Date.now();
+    }
+
+    const res = await fetch(url, { credentials: 'include' });
+    console.log(res);
+    alert(res.status + "-" + (await res.text()));
 }
